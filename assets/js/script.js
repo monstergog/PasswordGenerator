@@ -27,8 +27,9 @@ function generatePassword () {
     }
   }
 
-  // Reset flag for while loop
+  // Reset flag for next while loop
   tryAgain = true;
+  
   // Asks for user confirmation for what type of characters are to be used in the password
   while (tryAgain) {
     lowercase = confirm("Do you want to include lowercase characters?");
