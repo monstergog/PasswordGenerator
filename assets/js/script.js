@@ -6,7 +6,7 @@ const specialCharacters = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
 
 // Generateds a random string of characters depending on user input
 function generatePassword () {
-  var tryAgain = true;
+  var goNext = false;
   var passLength = -1;
   var lowercase = false;
   var uppercase = false;
@@ -16,22 +16,25 @@ function generatePassword () {
   var password = "";
 
   // Prompts user for password length
-  while (tryAgain) {
+  while (!goNext) {
     passLength = prompt("How many chacters should the password have?\n(8 - 128)", "8");
 
     // Validates user entry is within criteria
     if (passLength < 8 || isNaN(passLength) || passLength > 128) {
-      tryAgain = confirm("Error: Invalid length!\n\nWould you like to try again?");
+      goNext = confirm("Error: Invalid length!\n\nWould you like to try again?");
+      if (!goNext) {
+        return "ERROR: Try Again";
+      }
     } else {
-      tryAgain = false;
+      goNext = true;
     }
   }
 
-  // Reset flag for next while loop
-  tryAgain = true;
-  
+  // Sets flag for next while loop
+  goNext = false;
+
   // Asks for user confirmation for what type of characters are to be used in the password
-  while (tryAgain) {
+  while (!goNext) {
     lowercase = confirm("Do you want to include lowercase characters?");
     uppercase = confirm("Do you want to include uppercase characters?");
     numeric = confirm("Do you want to include numeric characters?");
@@ -39,9 +42,21 @@ function generatePassword () {
 
     // Validates if at least of of the character types are to be used for the password
     if (lowercase === false && uppercase === false && numeric === false && special === false) {
-      tryAgain = confirm("Error: Please choose at least one of the character types\n\nWould you like to try again?");
+      goNext = confirm("Error: Please choose at least one of the character types\n\nWould you like to try again?");
+      if (!goNext) {
+        return "ERROR: Try Again";
+      } else {
+        goNext = false;
+      }
     } else {
-      tryAgain = false;
+      goNext = confirm(
+      `Your password will be generated with the following character types:
+      Lowercase: ${lowercase}
+      Uppercase: ${uppercase}
+      Numbers: ${numeric}
+      Special: ${special}
+      
+      Is this correct?`);
     }
   }
 
