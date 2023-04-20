@@ -24,6 +24,8 @@ function generatePassword () {
       goNext = confirm("Error: Invalid length!\n\nWould you like to try again?");
       if (!goNext) {
         return "ERROR: Try Again";
+      } else {
+        goNext = false;
       }
     } else {
       goNext = true;
