@@ -49,6 +49,7 @@ function generatePassword () {
         goNext = false;
       }
     } else {
+      // Confirms users choices
       goNext = confirm(
       `Your password will be generated with the following character types:
       Lowercase: ${lowercase}
