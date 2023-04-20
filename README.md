@@ -1,30 +1,23 @@
-# Password Generator Starter Code
+# Password Generator
 
-AS AN employee with access to sensitive data
-I WANT to randomly generate a password that meets certain criteria
-SO THAT I can create a strong password that provides greater security
+## Description
 
+A simple password generator that takes in user input to determine what type of characters (eg. Lowercase, Uppercase, Numbers, Special Characters) are to be used for the password generation.
 
+## Installation
 
-GIVEN I need a new, secure password
+Once the repo has been downloaded, you can open the webpage by opening on the index.html file
 
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
+## Usage
 
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password
+https://monstergog.github.io/PasswordGenerator/
 
-WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters
+Once the webpage is opened, press the "Generate Password" button. Then follow the instructions given by the on-screen prompts to generate your password.
 
-WHEN asked for character types to include in the password
-THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
+![Password Generator Screenshot](./assets/images/screenshot.png)
 
-WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
+## License
 
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
+N/A
 
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page
+---
