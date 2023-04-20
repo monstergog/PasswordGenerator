@@ -22,13 +22,19 @@ function generatePassword () {
     // Validates user entry is within criteria
     if (passLength < 8 || isNaN(passLength) || passLength > 128) {
       goNext = confirm("Error: Invalid length!\n\nWould you like to try again?");
+
       if (!goNext) {
         return "ERROR: Try Again";
       } else {
         goNext = false;
       }
+
     } else {
-      goNext = true;
+      // Confirms users input
+      goNext = confirm (
+        `Your password will have: ${passLength} characters
+        
+        Is this correct?`);
     }
   }
 
@@ -45,11 +51,13 @@ function generatePassword () {
     // Validates if at least of of the character types are to be used for the password
     if (lowercase === false && uppercase === false && numeric === false && special === false) {
       goNext = confirm("Error: Please choose at least one of the character types\n\nWould you like to try again?");
+
       if (!goNext) {
         return "ERROR: Try Again";
       } else {
         goNext = false;
       }
+
     } else {
       // Confirms users choices
       goNext = confirm(
