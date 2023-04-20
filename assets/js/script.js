@@ -1,19 +1,32 @@
 // Assignment code here
 function generatePassword () {
+  var tryAgain = true;
   var passLength = -1;
-  if (passLength < 8 || passLength === null || passLength > 128) {
-    prompt("How many chacters should the password have?\n(8 - 128)", "8");
+  var lowercase = false;
+  var uppercase = false;
+  var numeric = false;
+  var special = false;
 
-    if (passLength < 8 || passLength === null || passLength > 128) {
-      alert("Please enter a valid number\nPress the generate button to try again");
-      return null;
+  if (tryAgain === true) {
+    passLength = prompt("How many chacters should the password have?\n(8 - 128)", "8");
+
+    if (passLength < 8 || isNaN(passLength) || passLength > 128) {
+      alert("Error: Invalid length!\n\nPlease try to generating another password");
+      return "Error: Try Again";
     }
   }
 
-  var lowercase = confirm("Do you want to include lowercase characters?");
-  var uppercase = confirm("Do you want to include uppercase characters?");
-  var numeric = confirm("Do you want to include numeric characters?");
-  var special = confirm("Do you want to include special characters?");
+  while (tryAgain === true) {
+    lowercase = confirm("Do you want to include lowercase characters?");
+    uppercase = confirm("Do you want to include uppercase characters?");
+    numeric = confirm("Do you want to include numeric characters?");
+    special = confirm("Do you want to include special characters?");
+
+    if (lowercase === false && uppercase === false && numeric === false && special === false) {
+      tryAgain = prompt("Error: Please choose at least one of the character types\n Would you like to try again?");
+    }
+  }
+  alert("well done");
 }
 
 // Get references to the #generate element
@@ -30,4 +43,4 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword());
+generateBtn.addEventListener("click", writePassword);
