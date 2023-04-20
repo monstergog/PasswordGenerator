@@ -7,23 +7,27 @@ function generatePassword () {
   var numeric = false;
   var special = false;
 
-  if (tryAgain === true) {
+  while (tryAgain) {
     passLength = prompt("How many chacters should the password have?\n(8 - 128)", "8");
 
     if (passLength < 8 || isNaN(passLength) || passLength > 128) {
-      alert("Error: Invalid length!\n\nPlease try to generating another password");
-      return "Error: Try Again";
+      tryAgain = confirm("Error: Invalid length!\n\nWould you like to try again?");
+    } else {
+      tryAgain = false;
     }
   }
 
-  while (tryAgain === true) {
+  tryAgain = true;
+  while (tryAgain) {
     lowercase = confirm("Do you want to include lowercase characters?");
     uppercase = confirm("Do you want to include uppercase characters?");
     numeric = confirm("Do you want to include numeric characters?");
     special = confirm("Do you want to include special characters?");
 
     if (lowercase === false && uppercase === false && numeric === false && special === false) {
-      tryAgain = prompt("Error: Please choose at least one of the character types\n Would you like to try again?");
+      tryAgain = confirm("Error: Please choose at least one of the character types\n\nWould you like to try again?");
+    } else {
+      tryAgain = false;
     }
   }
   alert("well done");
