@@ -32,9 +32,9 @@ function generatePassword () {
     } else {
       // Confirms users input
       goNext = confirm (
-        `Your password will have: ${passLength} characters
+`Your password will have: ${passLength} characters
         
-        Is this correct?`);
+Is this correct?`);
     }
   }
 
@@ -61,13 +61,13 @@ function generatePassword () {
     } else {
       // Confirms users choices
       goNext = confirm(
-      `Your password will be generated with the following character types:
-      Lowercase: ${lowercase}
-      Uppercase: ${uppercase}
-      Numbers: ${numeric}
-      Special: ${special}
+`Your password will be generated with the following character types:
+Lowercase: ${lowercase}
+Uppercase: ${uppercase}
+Numbers: ${numeric}
+Special: ${special}
       
-      Is this correct?`);
+Is this correct?`);
     }
   }
 
