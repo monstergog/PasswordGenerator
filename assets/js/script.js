@@ -1,4 +1,9 @@
 // Assignment code here
+const lowerAlphabet = "abcdefghijklmnopqrstuvwxyz";
+const upperAlphabet = lowerAlphabet.toUpperCase();
+const numericCharacters = "1234567890";
+const specialCharacters = " !\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+
 function generatePassword () {
   var tryAgain = true;
   var passLength = -1;
@@ -6,6 +11,9 @@ function generatePassword () {
   var uppercase = false;
   var numeric = false;
   var special = false;
+  var characterSet = "";
+  var password = "";
+
 
   while (tryAgain) {
     passLength = prompt("How many chacters should the password have?\n(8 - 128)", "8");
@@ -30,7 +38,17 @@ function generatePassword () {
       tryAgain = false;
     }
   }
-  alert("well done");
+
+  if (lowercase === true) {characterSet += lowerAlphabet;}
+  if (uppercase === true) {characterSet += upperAlphabet;}
+  if (numeric === true) {characterSet += numericCharacters;}
+  if (special === true) {characterSet += specialCharacters;}
+  
+  for (var i = 0; i < passLength; i++) {
+    password += characterSet[Math.floor(Math.random() * characterSet.length)];
+  }
+
+  return password;
 }
 
 // Get references to the #generate element
